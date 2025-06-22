@@ -15,7 +15,7 @@ This is a simple Python project that simulates an ATM machine using object-orien
 - Basic banking operations
 - User-friendly CLI interface
 
-# 🧠 Key Features:
+## Key Features:
 PIN-based authentication
 
 Check balance
@@ -28,7 +28,7 @@ Input validation for secure and user-friendly experience
 
 Clean modular design using Python classes and methods
 
-# 🛠 Technologies Used:
+## Technologies Used:
 Python 3
 
 OOP (Object-Oriented Programming)
