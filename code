@@ -1,0 +1,61 @@
+class ATM:
+    def __init__(self, user_name, pin, balance=0):
+        self.user_name = user_name
+        self.pin = pin
+        self.balance = balance
+
+    def check_pin(self, entered_pin):
+        return self.pin == entered_pin
+
+    def check_balance(self):
+        print(f"\n Current Balance: ₹{self.balance:.2f}\n")
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"\n ₹{amount} deposited successfully.\n")
+        else:
+            print("\nInvalid deposit amount.\n")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("\n Insufficient balance.\n")
+        elif amount <= 0:
+            print("\n Invalid withdrawal amount.\n")
+        else:
+            self.balance -= amount
+            print(f"\n ₹{amount} withdrawn successfully.\n")
+
+
+# Simulating one user
+user = ATM("John", "1234", 1000)
+
+print("=== Welcome to Python Bank ATM ===")
+
+entered_pin = input("Enter your 4-digit PIN: ")
+if user.check_pin(entered_pin):
+    while True:
+        print("""
+        === Menu ===
+        1. Check Balance
+        2. Deposit
+        3. Withdraw
+        4. Exit
+        """)
+        choice = input("Choose an option: ")
+
+        if choice == '1':
+            user.check_balance()
+        elif choice == '2':
+            amount = float(input("Enter amount to deposit: ₹"))
+            user.deposit(amount)
+        elif choice == '3':
+            amount = float(input("Enter amount to withdraw: ₹"))
+            user.withdraw(amount)
+        elif choice == '4':
+            print("\nThank you for using Python Bank ATM. Goodbye! 👋")
+            break
+        else:
+            print("\n Invalid choice. Try again.\n")
+else:
+    print("\n Incorrect PIN. Access denied.\n")
